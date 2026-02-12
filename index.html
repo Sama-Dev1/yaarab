@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test133</title>
+    <title>NEON STRIKE | Online Fighting Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div>
-        <h1>Hello</h1>
+    <div id="game-container">
+        <div id="ui-overlay">
+            <div style="width: 45%;">
+                <div class="player-info">Player 1 (C++)</div>
+                <div class="health-container">
+                    <div id="health-p1"></div>
+                </div>
+            </div>
+
+            <div class="timer" id="timer">99</div>
+
+            <div style="width: 45%; text-align: right;">
+                <div class="player-info">Player 2 (C#)</div>
+                <div class="health-container">
+                    <div id="health-p2"></div>
+                </div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas"></canvas>
+
+        <div id="main-menu">
+            <h1>NEON STRIKE</h1>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">Powered by C++, C#, and JavaScript</p>
+
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <button class="btn" style="border-color: #00f2ff; color: #00f2ff;" onclick="joinGame('p1')">Join as
+                    Player 1 (Blue)</button>
+                <button class="btn" style="border-color: #ff00ff; color: #ff00ff;" onclick="joinGame('p2')">Join as
+                    Player 2 (Pink)</button>
+            </div>
+
+            <div id="status" style="margin-top: 20px; color: var(--primary-neon);">Connecting to Server...</div>
+        </div>
+
+        <!-- Touch Controls (Mobile) -->
+        <div id="touch-controls">
+            <div class="touch-group left">
+                <button id="btn-left" class="touch-btn">⬅️</button>
+                <button id="btn-right" class="touch-btn">➡️</button>
+            </div>
+            <div class="touch-group right">
+                <button id="btn-jump" class="touch-btn">Jump</button>
+                <button id="btn-attack" class="touch-btn">🔥</button>
+            </div>
+        </div>
     </div>
-    
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.min.js"></script>
+    <script src="game.js"></script>
 </body>
+
 </html>
